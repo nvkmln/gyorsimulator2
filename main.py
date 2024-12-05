@@ -1,5 +1,5 @@
-import os, random
-from helyszinek import gyomore, gyor, iskola
+import os, random, time
+from helyszinek import gyomore, gyor, iskola, dohanybolt
 
 def vesztettel():
     global energia
@@ -58,24 +58,65 @@ def main():
                             os.system("cls")
                             energia = 0
                             penz = 0
+                            print("Hazamentel, mert konnyen feladod az almaid. Igy nem erdemled meg azt, hogy eljuss Becsbe.")
                             vesztettel()
                     os.system("cls")
                     print(f'Energia: {energia}%', end='\t\t')
                     print(f'Egyenleg: {penz}Ft', end='\t\t')
                     hely = gyor()
                     v = input("\nHova szeretnel menni? ")
-                    if v == "1":
-                        while v == "1":
+                    while v == "1":
                             os.system("cls")
                             print(f'Energia: {energia}%', end='\t\t')
                             print(f'Egyenleg: {penz}Ft', end='\t\t')
                             hely = iskola()
                             v = input("")
-                            if v == "2":
+                            if v == "1":
+                                pass
+                            elif v == "2":
                                 os.system("cls")
                                 energia -= 40
+                            os.system("cls")
+                            print(f'Energia: {energia}%', end='\t\t')
+                            print(f'Egyenleg: {penz}Ft', end='\t\t')
+                            gyor()
+                            v = input("\nHova szeretnel menni? ")
+                    while v == "2":
+                        os.system("cls")
+                        energia -= random.randint(1,5)
+                        print(f'Energia: {energia}%', end='\t\t')
+                        print(f'Egyenleg: {penz}Ft', end='\t\t')
+                        hely = dohanybolt()
+                        v = input("")
+                        if v == "1":
+                            penz -=1800
+                            os.system("cls")
+                            print(f'Energia: {energia}%', end='\t\t')
+                            print(f'Egyenleg: {penz}Ft', end='\t\t')
+                            v = input("\nA csoves kihozott neked egy Marlboro Touch fustszuros cigarettat. Adsz neki borravalot?\n1 - Igen(-300Ft)\n2 - Nem\n")
+                            if v == "1":
+                                penz -=300
+                                os.system("cls")
                                 print(f'Energia: {energia}%', end='\t\t')
                                 print(f'Egyenleg: {penz}Ft', end='\t\t')
+                                print("\nA csoves boldog lett, te pedig nyugodtan mehetsz iskolaba.(Felteve ha szeretnel)")
+                                cigi()
+                                v = input("")
+                                time.sleep(2.5)
+                        elif v == "2":
+                                os.system("cls")
+                                energia -= 15
+                                print(f'Energia: {energia}%', end='\t\t')
+                                print(f'Egyenleg: {penz}Ft', end='\t\t')
+                                print("\nNem vettel cigit, pangani fogsz egesz nap.")
+                                time.sleep(3)
+                                pass
+                        os.system("cls")
+                        print(f'Energia: {energia}%', end='\t\t')
+                        print(f'Egyenleg: {penz}Ft', end='\t\t')
+                        hely = gyor()
+                        v = input("\nHova szeretnel menni? ")
+                                
 
 
 
