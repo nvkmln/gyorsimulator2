@@ -53,13 +53,32 @@ def main():
                         v= input(f"\nSajnos a vonatod {random.randint(1,121)} percet kesik.\nMegvarod?\n1 - Igen\n2 - Nem\n")
                         if v == "1":
                             pass
+                            energia -= random.randint(1,5)
                         elif v == "2":
                             os.system("cls")
                             energia = 0
                             penz = 0
                             vesztettel()
+                    os.system("cls")
+                    print(f'Energia: {energia}%', end='\t\t')
+                    print(f'Egyenleg: {penz}Ft', end='\t\t')
                     hely = gyor()
-                    v = input("Hova szeretnel menni?")
+                    v = input("\nHova szeretnel menni? ")
+                    if v == "1":
+                        while v == "1":
+                            os.system("cls")
+                            print(f'Energia: {energia}%', end='\t\t')
+                            print(f'Egyenleg: {penz}Ft', end='\t\t')
+                            hely = iskola()
+                            v = input("")
+                            if v == "2":
+                                os.system("cls")
+                                energia -= 40
+                                print(f'Energia: {energia}%', end='\t\t')
+                                print(f'Egyenleg: {penz}Ft', end='\t\t')
+
+
+
                 game()
 
 
