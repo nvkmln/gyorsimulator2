@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.1">
+  <diagram name="1 oldal" id="FhZU1bRqEGuFB2vwPZmc">
+    <mxGraphModel dx="989" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KD5gaBioyo4awNugm5Q--3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--1" target="KD5gaBioyo4awNugm5Q--2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--1" value="Gyomore vasutallomas(spawn/loading screen)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--2" target="KD5gaBioyo4awNugm5Q--4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--2" value="Szerinted kesik a vonatod?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="410" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--4" value="Igen" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="490" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--5" target="KD5gaBioyo4awNugm5Q--9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--5" value="Nem" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="490" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.656;entryY=0.075;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--2" target="KD5gaBioyo4awNugm5Q--5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--9" target="KD5gaBioyo4awNugm5Q--18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--9" value="Play MAV utastajekoztato(random keses 5-120 percig)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="555" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.494;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--4" target="KD5gaBioyo4awNugm5Q--9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD5gaBioyo4awNugm5Q--18" target="KD5gaBioyo4awNugm5Q--22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--18" value="Megjon a vonat, erkezes Gyorbe" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KD5gaBioyo4awNugm5Q--22" value="Allomas(spawn2)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
