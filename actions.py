@@ -1,2 +1,2 @@
-def cigi():
-    print("\nVan cigid vegre, ragyujtasz?\n1 - Igen\n2 - Nem")
+def cigizes():
+    print("\nVan cigid, ragyujtasz?\n1 - Igen\n2 - Nem")
