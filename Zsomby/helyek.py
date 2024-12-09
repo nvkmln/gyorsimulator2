@@ -5,6 +5,10 @@ penz = 2500
 ora = 6
 perc = 42
 def main():
+    global energia
+    global penz
+    global ora
+    global perc
     os.system('cls')
     print("Gyor simulator 2")
     print("\n1 - Start \t 2 - Kilepes")
@@ -24,8 +28,15 @@ def main():
 
 def vesztettel():
     if ora >= 23:
+        os.system("cls")
         print(f"Nem erted el az utolso vonatot Becsbe \nVesztettel!")
-    
+        time.sleep(3)
+        main()
+    if energia <= 0:
+        os.system("cls")
+        print(f"\nMeghaltal.\nVesztettel!")
+        time.sleep(3)
+        main()
 
 def ido(ora: int, perc: int):
     ido = f"{ora}:{perc}"
@@ -52,6 +63,10 @@ def gyomore(v: str):
     global penz
     global ora
     global perc
+    energia = 100
+    penz = 2500
+    ora = 6
+    perc = 42
     os.system("cls")
     statPrinteles(energia, penz)
     ido(ora, perc)
@@ -63,6 +78,7 @@ def gyomore(v: str):
     match v:
         case '1':
             v = 0
+            perc += 26
             perc += keses
             energia -= random.randint(1,15)
             ido(ora, perc)
@@ -75,6 +91,7 @@ def gyomore(v: str):
 
 
 def gyor(v : str):
+    vesztettel()
     global energia
     global penz
     global ora
@@ -93,6 +110,7 @@ def gyor(v : str):
             gyor(v)
     
 def iskola(v : str):
+    vesztettel()
     global energia
     global penz
     global ora
@@ -138,6 +156,7 @@ def dohi(v : str):
                         case "1":
                             if energia <=85:
                                 energia += 15
+                            perc += 10
                             os.system("cls")
                             statPrinteles(energia,penz)
                             ido(ora,perc)
@@ -149,6 +168,7 @@ def dohi(v : str):
                             statPrinteles(energia,penz)
                             ido(ora,perc)
                             print(f"\nA csoves megkeselt, mert {random.randint(1,5)} napja pangott es nagyon vagyott egy bunpalcara.")
+                            time.sleep(3)
                             energia = 0
                             vesztettel()
                 else:
