@@ -1,6 +1,6 @@
 import os, random, time
 from helyszinek import gyomore, gyor, iskola, dohanybolt, arkad
-from actions import cigi
+from actions import cigizes
 
 def vesztettel():
     global energia
@@ -28,6 +28,7 @@ def main():
     global energia
     global penz
     global hely
+    global cigi
     match v:
         case "1":
                 energia = 100
@@ -77,11 +78,11 @@ def main():
                             os.system("cls")
                             energia -= 40
                             vesztettel()
-                    os.system("cls")
-                    print(f'Energia: {energia}%', end='\t\t')
-                    print(f'Egyenleg: {penz}Ft', end='\t\t')
-                    gyor()
-                    v = input("\nHova szeretnel menni? ")
+                        os.system("cls")
+                        print(f'Energia: {energia}%', end='\t\t')
+                        print(f'Egyenleg: {penz}Ft', end='\t\t')
+                        gyor()
+                        v = input("\nHova szeretnel menni? ")
                     if v == "2":
                         os.system("cls")
                         energia -= random.randint(1,5)
@@ -128,11 +129,11 @@ def main():
                                 time.sleep(2)
                                 os.system("cls")
                                 vesztettel()
-                    os.system("cls")
-                    print(f'Energia: {energia}%', end='\t\t')
-                    print(f'Egyenleg: {penz}Ft', end='\t\t')
-                    hely = gyor()
-                    v = input("\nHova szeretnel menni? ")
+                        os.system("cls")
+                        print(f'Energia: {energia}%', end='\t\t')
+                        print(f'Egyenleg: {penz}Ft', end='\t\t')
+                        hely = gyor()
+                        v = input("\nHova szeretnel menni? ")
                     if v == "3":
                         os.system("cls")
                         print(f'Energia: {energia}%', end='\t\t')

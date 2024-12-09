@@ -1,5 +1,3 @@
-import random
-import os
 def gyomore():
     print("\nAhhoz, hogy eljuss Becsbe, eloszor el kell menj otthonrol Gyorbe, ezert Gyomoren kezdesz.\n")
 
