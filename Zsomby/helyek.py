@@ -1,9 +1,31 @@
-import random, os
+import random, os, time
 
 energia = 100
 penz = 2500
 ora = 6
 perc = 42
+def main():
+    os.system('cls')
+    print("Gyor simulator 2")
+    print("\n1 - Start \t 2 - Kilepes")
+    v = input("")
+    match v:
+        case '1':
+            os.system('cls')
+            print("Udv a Gyor Simulator 2-ben, ahol ugyanaz a celod, mint az elso kiadasban, hogy megvedd a csodas vonatjegyed Becsbe. Sok szerencset!")
+            input("\nENTER")
+            v = 0
+            gyomore(v)
+        case '2':
+            pass
+        case default:
+            main()
+
+
+def vesztettel():
+    if ora >= 23:
+        print(f"Nem erted el az utolso vonatot Becsbe \nVesztettel!")
+    
 
 def ido(ora: int, perc: int):
     ido = f"{ora}:{perc}"
@@ -104,16 +126,43 @@ def dohi(v : str):
     v = input("")
     match v:
         case "1":
-                os.system("cls")
-                statPrinteles(energia,penz)
-                ido(ora,perc)
-                print(f"\nA csoves kihozott neked egy doboz Kek Sophiane-t")
-                print(f"\nFizetsegul adsz neki egy szalat?\n1 - Igen  \t  2 - Nem")
-                v  = input("")
+                if penz >= 1800:
+                    penz -= 1800
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(ora,perc)
+                    print(f"\nA csoves kihozott neked egy doboz Kek Sophiane-t")
+                    print(f"\nFizetsegul adsz neki egy szalat?\n1 - Igen  \t  2 - Nem")
+                    v  = input("")
+                    match v:
+                        case "1":
+                            if energia <=85:
+                                energia += 15
+                            os.system("cls")
+                            statPrinteles(energia,penz)
+                            ido(ora,perc)
+                            print("\nElszivtatok a csovessel egy cigit, ettol jobb lett mindkettotok napja")
+                            time.sleep(3)
+                            gyor(v)
+                        case "2":
+                            os.system("cls")
+                            statPrinteles(energia,penz)
+                            ido(ora,perc)
+                            print(f"\nA csoves megkeselt, mert {random.randint(1,5)} napja pangott es nagyon vagyott egy bunpalcara.")
+                            energia = 0
+                            vesztettel()
+                else:
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(ora,perc)
+                    print(f"\nNincs eleg fedezeted ahhoz, hogy cigit tudj venni.")
         case "2":
             energia -= 25
             os.system("cls")
             statPrinteles(energia,penz)
             ido(ora,perc)
-            print("Nagyon fogsz ma pangani.")
+            print("\nNagyon fogsz ma pangani...")
+            time.sleep(3)
             gyor(v)
+
+main()
