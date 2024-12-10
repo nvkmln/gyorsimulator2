@@ -4,6 +4,7 @@ energia = 100
 penz = 2500
 ora = 6
 perc = 42
+
 def main():
     global energia
     global penz
@@ -29,7 +30,7 @@ def main():
 def vesztettel():
     if ora >= 23:
         os.system("cls")
-        print(f"Nem erted el az utolso vonatot Becsbe \nVesztettel!")
+        print(f"Nem erted el az utolso vonatot Becsbe.\nVesztettel!")
         time.sleep(3)
         main()
     if energia <= 0:
@@ -37,6 +38,10 @@ def vesztettel():
         print(f"\nMeghaltal.\nVesztettel!")
         time.sleep(3)
         main()
+    if penz <=0:
+        os.system("cls")
+        print(f"\nElfogyott minden penzed.\nVesztettel!")
+    
 
 def ido(ora: int, perc: int):
     ido = f"{ora}:{perc}"
@@ -78,13 +83,14 @@ def gyomore(v: str):
     match v:
         case '1':
             v = 0
-            perc += 26
-            perc += keses
+            perc += keses + 26
             energia -= random.randint(1,15)
             ido(ora, perc)
             gyor(v)
         case '2':
             print("Ha nem akarsz jatszani minek nyitottad meg?")
+            time.sleep(3)
+            vege()
             exit
         case default:
             gyomore(v)
@@ -103,11 +109,14 @@ def gyor(v : str):
     v = input("")
     match v:
         case "1":
+            v = "0"
             iskola(v)
         case "2":
+            v = "0"
             dohi(v)
-									case "3":
-														arkad()
+        case "3":
+            v = "0"
+            arkad(v)
         case default:
             gyor(v)
     
@@ -186,7 +195,53 @@ def dohi(v : str):
             print("\nNagyon fogsz ma pangani...")
             time.sleep(3)
             gyor(v)
-def arkad():
-
-
+def arkad(v : str):
+    workhours = 0
+    global energia
+    global penz
+    global ora
+    global perc
+    os.system("cls")
+    statPrinteles(energia,penz)
+    ido(ora,perc)
+    print(f"\nHelyszin: Arkad")
+    print(f"\n1 - KFC\n2 - WC-s nenizes\n3 - Media Markt\n4 - Kimesz cigizni\n5 - Vissza")
+    v = input("")
+    match v:
+        case default:
+            v = 0
+            arkad(v)
+def barossut(v : str):
+    global energia
+    global penz
+    global ora
+    global perc
+    os.system("cls")
+    statPrinteles(energia,penz)
+    ido(ora,perc)
+    print(f"\nHelyszin: Baross ut")
+    print(f"\n1 - Eneklos csavo\n2 - Kocsma\n3 - Adventi vasar\n4 - Vissza")
+    v = input("")
+def becsivonat(v):
+    global energia
+    global penz
+    global ora
+    global perc
+    os.system("cls")
+    statPrinteles(energia,penz)
+    ido(ora,perc)
+    print(f"\nHelyszin: Vasutallomas, Belfoldi Jegypenztar")
+    if penz >= 15000:
+        penz -=15000
+        print(f"\nGratulalok! Elerted az almodat, sok sikert kivanunk!")
+        vege()
+    else:
+        v = 0
+        print("\nNincs eleg penzed a vonatjegyre, dolgoznod kell meg!")
+        gyor(v)
+    time.sleep(2)
+def vege():
+    os.system("cls")
+    print("Meger egy otost?")
+    time.sleep(5)
 main()
