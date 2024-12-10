@@ -1,7 +1,7 @@
 import random, os, time
 
 energia = 100
-penz = 2500
+penz = 2000
 ora = 6
 perc = 42
 
@@ -69,7 +69,7 @@ def gyomore(v: str):
     global ora
     global perc
     energia = 100
-    penz = 2500
+    penz = 2000
     ora = 6
     perc = 42
     os.system("cls")
@@ -83,7 +83,8 @@ def gyomore(v: str):
     match v:
         case '1':
             v = 0
-            perc += keses + 26
+            perc += keses
+            perc += 26
             energia -= random.randint(1,15)
             ido(ora, perc)
             gyor(v)
@@ -136,7 +137,7 @@ def iskola(v : str):
         case "1":
             energia -= random.randint(1,15)
             ora += 7
-            perc += 20
+            perc = 20
             gyor(v)
         case "2":
             gyor(v)
@@ -201,6 +202,8 @@ def arkad(v : str):
     global penz
     global ora
     global perc
+    energia -=15
+    perc += 15
     os.system("cls")
     statPrinteles(energia,penz)
     ido(ora,perc)
@@ -208,6 +211,32 @@ def arkad(v : str):
     print(f"\n1 - KFC\n2 - WC-s nenizes\n3 - Media Markt\n4 - Kimesz cigizni\n5 - Vissza")
     v = input("")
     match v:
+        case "1":
+            if penz > 2300:
+                if energia <= 75:
+                    energia =+25
+                else:
+                    pass
+                v= 0
+                os.system("cls")
+                penz -= 2300
+                perc += 25
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nEttel egy Grander menut, emellett talalkoztal a haverjaiddal, beszelgettetek egy jot.")
+                time.sleep(3)
+                arkad(v)
+            else:
+                v = 0
+                os.system("cls")
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nNincsen eleg fedezeted az etkezeshez.")
+                time.sleep(3)
+                arkad(v)
+        case "5":
+            v = 0
+            gyor(v)
         case default:
             v = 0
             arkad(v)
