@@ -106,6 +106,8 @@ def gyor(v : str):
             iskola(v)
         case "2":
             dohi(v)
+									case "3":
+														arkad()
         case default:
             gyor(v)
     
@@ -184,5 +186,7 @@ def dohi(v : str):
             print("\nNagyon fogsz ma pangani...")
             time.sleep(3)
             gyor(v)
+def arkad():
+
 
 main()
