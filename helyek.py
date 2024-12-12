@@ -45,6 +45,8 @@ def gyomore(v: str):
     global ora
     global perc
     global menetido
+    global workhours
+    workhours = 0
     energia = 100
     penz = 2500
     ora = 6
@@ -189,12 +191,15 @@ def dohi(v : str):
             print("\nNagyon fogsz ma pangani...")
             time.sleep(3)
             gyor(v)
+        case default:
+            v = 0
+            dohi()
 def arkad(v : str):
     global energia
     global penz
     global ora
     global perc
-    workhours = 0
+    global workhours
     os.system("cls")
     statPrinteles(energia,penz)
     ido(ora,perc)
@@ -229,18 +234,19 @@ def arkad(v : str):
                 time.sleep(3)
                 arkad(v)
         case "2":
-            if workhours < 6:
+            workhours += 1
+            if workhours <= 6:
                     v = 0
                     energia -=5
                     pluszpenz = random.randint(1,10)*50
                     penz += pluszpenz
-                    workhours += 1
                     ora += 1
                     os.system("cls")
                     statPrinteles(energia,penz)
                     ido(ora,perc)
-                    print(f"\nDolgoztal 1 orat wcs nenikent es {pluszpenz} Ft-ot kerestel.")
+                    print(f"\nDolgoztal 1/{workhours} orat wcs nenikent es {pluszpenz} Ft-ot kerestel.")
                     time.sleep(3)
+                    vesztettel()
                     arkad(v)
             else:
                     v = 0
@@ -251,15 +257,9 @@ def arkad(v : str):
                     time.sleep(3)
                     arkad(v)
         case "3":
-            if workhours < 6:
-                    v = 0
-                    energia -=15
-                    pluszpenz = 3500
-                    penz += pluszpenz
-                    workhours += 1
-                    ora += 1
-                    jackpot = random.randint(1,100)
-                    os.system("cls")
+            workhours += 1
+            jackpot = random.randint(1,100)
+            if workhours <= 6:
                     if jackpot <= 30:
                         os.system("cls")
                         v = 0
@@ -271,12 +271,18 @@ def arkad(v : str):
                         time.sleep(5)
                         arkad(v)
                     else:
-                        pass
-                    statPrinteles(energia,penz)
-                    ido(ora,perc)
-                    print(f"\nDolgoztal 1 orat a Media Markt-ban es {pluszpenz} Ft-ot kerestel.")
-                    time.sleep(3)
-                    arkad(v)
+                        v = 0
+                        energia -=15
+                        pluszpenz = 3500
+                        penz += pluszpenz
+                        ora += 1
+                        os.system("cls")
+                        statPrinteles(energia,penz)
+                        ido(ora,perc)
+                        print(f"\nDolgoztal 1 orat a Media Markt-ban es {pluszpenz} Ft-ot kerestel.")
+                        time.sleep(3)
+                        vesztettel()
+                        arkad(v)
             else:
                     v = 0
                     os.system("cls")
@@ -288,15 +294,7 @@ def arkad(v : str):
         case "4":
             v = 0
             os.system("cls")
-            if energia <70:
-                energia += 30
-                perc += 10
-                statPrinteles(energia,penz)
-                ido(ora,perc)
-                print(f"\nElszivtal egy cigit, feltoltodtel.\nIrany dolgozni!")
-                time.sleep(3)
-                arkad(v)
-            elif energia == 70:
+            if energia <=70:
                 energia = 100
                 perc += 10
                 statPrinteles(energia,penz)
@@ -330,6 +328,88 @@ def barossut(v : str):
     print(f"\nHelyszin: Baross ut")
     print(f"\n1 - Eneklos csavo\n2 - Kocsma\n3 - Adventi vasar\n4 - Kukazas\n5 - Vissza")
     v = input("")
+    match v:
+        case  "1":
+            v = 0
+            os.system("cls")
+            energia = 100
+            perc += 3
+            statPrinteles(energia,penz)
+            ido(ora,perc)
+            print(f"\nHelyszin: Baross ut")
+            print(f"\nTalalkoztal az eneklos csavoval, aki jobb kedvre deritett. :)")
+            time.sleep(3)
+            barossut(v)
+        case "2":
+            os.system("cls")
+            statPrinteles(energia,penz)
+            ido(ora,perc)
+            print
+            (f"\nHelyszin: Yolo Pub")
+            print(f"\nIszol egy sort?\n1 - Igen  \t  2 - Nem")
+            v = input("")
+            match v:
+                case "1":
+                    penz = 0
+                    ora +=999
+                    perc += 999
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(ora,perc)
+                    print(f"\nHelyszin: Yolo Pub")   
+                    print("Sajnos elittad minden penzedet, reszeg vagy, azt sem tudod mennyi az ido.")
+                    time.sleep(5)
+                    vesztettel()          
+                case "2":
+                    v = 0
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(ora,perc)       
+                    print(f"\nMa nem iszol, nem dol ossze a vilag. Majd talan legkozelebb.")
+                    time.sleep(5)
+                    barossut(v)
+        case "3":
+            os.system("cls")
+            ora = 23
+            perc = 00
+            statPrinteles(energia,penz)
+            ido(ora,perc)
+            print(f"\nHelyszin: Adventi vasar")
+            print(f"Elvesztel az adventi vasarban, elfeledkeztel mennyi az ido!")
+            time.sleep(5)
+            vesztettel()    
+        case "4":
+            elfognak = random.randint(1,100)
+            if elfognak <= 45:
+                        os.system("cls")
+                        statPrinteles(energia,penz)
+                        ido(ora,perc)
+                        print(f"\nHelyszin: Baross ut")
+                        print(f"\nEszrevettek a rendorok, hogy a kukakban turkalsz, ezert bevittek a bortonbe.")
+                        energia = 0
+                        time.sleep(5)
+                        vesztettel()
+            else:
+                v = 0
+                uvegek = random.randint(1,9)
+                pluszpenz = uvegek * 50
+                penz += pluszpenz
+                os.system("cls")
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nHelyszin: Baross ut")
+                print(f"\nSikeresen kukaztal {uvegek} db uveget ezert kerestel {pluszpenz} Ft-ot.")
+                time.sleep(3)
+                barossut(v)
+        case "5":
+            energia -= 5
+            perc += 8
+            v = 0
+            gyor(v)
+        case default:
+            v = 0
+            barossut(v)
+
 def becsivonat(v : str):
     global energia
     global penz
