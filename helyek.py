@@ -46,7 +46,7 @@ def gyomore(v: str):
     global perc
     global menetido
     energia = 100
-    penz = 25000
+    penz = 2500
     ora = 6
     perc = 42
     keses = int(random.randint(1,120))
@@ -124,12 +124,12 @@ def iskola(v : str):
     v = input("")
     match v:
         case "1":
-            energia -= random.randint(1,15)
+            energia -= random.randint(15,25)
             ora += 7
             perc = 20
             ido(ora,perc)
-            gyor(v)
             vesztettel()
+            gyor(v)
         case "2":
             gyor(v)
         case default:
@@ -253,7 +253,7 @@ def arkad(v : str):
         case "3":
             if workhours < 6:
                     v = 0
-                    energia -=0
+                    energia -=15
                     pluszpenz = 3500
                     penz += pluszpenz
                     workhours += 1
@@ -267,7 +267,7 @@ def arkad(v : str):
                         ora += 1
                         statPrinteles(energia,penz)
                         ido(ora,perc)
-                        print(f"\nGratulalok! Te soztad ra a legtobb emberre az eladhatatlan cuccokat!\nFogadd szeretettel a bonuszodat!")
+                        print(f"\nGratulalok! Te soztad ra a legtobb emberre az eladhatatlan cuccokat!\nFogadd orommel a bonuszodat!")
                         time.sleep(5)
                         arkad(v)
                     else:
@@ -285,6 +285,31 @@ def arkad(v : str):
                     print(f"\nMa mar dolgoztal eleget. Pihenj egy kicsit!")
                     time.sleep(3)
                     arkad(v)
+        case "4":
+            v = 0
+            os.system("cls")
+            if energia <70:
+                energia += 30
+                perc += 10
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nElszivtal egy cigit, feltoltodtel.\nIrany dolgozni!")
+                time.sleep(3)
+                arkad(v)
+            elif energia == 70:
+                energia = 100
+                perc += 10
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nElszivtal egy cigit, feltoltodtel.\nIrany dolgozni!")
+                time.sleep(3)
+                arkad(v)
+            else:
+                statPrinteles(energia,penz)
+                ido(ora,perc)
+                print(f"\nTulsagosan sok energiad van, hogy cigizz.\nMenj el dolgozni!")
+                time.sleep(3)
+                arkad(v)
         case "5":
             v = "0"
             energia -=15
