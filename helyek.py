@@ -18,23 +18,7 @@ def vesztettel():
         print(f"\nElfogyott minden penzed.\nVisszakuldott az elet Gyomorere!")
         gyomore(v)
     
-'''
-def ido(ora: int, perc: int):
-    ido = f"{ora}:{perc}"
-    if perc > 60:
-        ora += perc //60
-        perc = perc % 60
-        ido = f"{ora}:{perc}"
-    elif perc == 60:
-        ora += 1
-        perc = 0
-        ido = f"{ora}:{perc}0"
-    elif perc > 0 and perc < 10:
-        ido = f"{ora}:0{perc}"
-    elif perc == 0:
-        ido = f"{ora}:0{perc}"
-    return print(ido)
-'''
+
 def ido(perc : int):
     ora = perc // 60
     perc = perc % 60
