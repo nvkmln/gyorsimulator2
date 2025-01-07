@@ -37,6 +37,10 @@ def gyomore(v: str):
     global perc
     global menetido
     global workhours
+    global cigi
+    global nyelvtanulas
+    cigi = False
+    nyelvtanulas = False
     workhours = 0
     energia = 100
     penz = 2500
@@ -130,6 +134,7 @@ def dohi(v : str):
     global penz
     global ora
     global perc
+    global cigi
     os.system("cls")
     statPrinteles(energia,penz)
     ido(perc)
@@ -140,6 +145,7 @@ def dohi(v : str):
         case "1":
                 if penz >= 1800:
                     penz -= 1800
+                    cigi = True
                     os.system("cls")
                     statPrinteles(energia,penz)
                     ido(perc)
@@ -283,7 +289,7 @@ def arkad(v : str):
         case "4":
             v = 0
             os.system("cls")
-            if energia <=70:
+            if energia <=70 and cigi == True:
                 energia = 100
                 perc += 10
                 statPrinteles(energia,penz)
@@ -291,10 +297,16 @@ def arkad(v : str):
                 print(f"\nElszivtal egy cigit, feltoltodtel.\nIrany dolgozni!")
                 time.sleep(3)
                 arkad(v)
-            else:
+            elif energia > 70:
                 statPrinteles(energia,penz)
                 ido(perc)
                 print(f"\nTulsagosan sok energiad van, hogy cigizz.\nMenj el dolgozni!")
+                time.sleep(3)
+                arkad(v)
+            else:
+                statPrinteles(energia,penz)
+                ido(perc)
+                print(f"\nNincsen cigid! Menj el es vegyel a dohiban!")
                 time.sleep(3)
                 arkad(v)
         case "5":
