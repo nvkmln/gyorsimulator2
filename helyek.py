@@ -45,7 +45,7 @@ def gyomore(v: str):
     energia = 100
     penz = 2500
     perc = 402
-    keses = int(random.randint(1,120))
+    keses = int(random.randint(1,52))
     menetido = keses +26
     os.system("cls")
     statPrinteles(energia, penz)
@@ -120,11 +120,27 @@ def iskola(v : str):
     v = input("")
     match v:
         case "1":
-            energia -= random.randint(15,25)
-            perc = 860
-            ido(perc)
-            vesztettel()
-            gyor(v)
+                if perc > 480 and perc < 540:
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")
+                    print(f"\n")
+                elif perc < 480:
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")
+                    print(f"\nVarj meg {480}-{perc} percet. Lassan mehetsz iskolaba.")
+                elif perc > 530:
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")   
+                    print("\nElso oran hianyoztal!\nMar mindegy, beirtak hianyzonak egesz napra, inkabb setalj egyet a varosban.")
+                    v = 0
+                    gyor(v)             
+                
         case "2":
             gyor(v)
         case default:
