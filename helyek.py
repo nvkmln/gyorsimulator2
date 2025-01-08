@@ -120,24 +120,16 @@ def iskola(v : str):
     v = input("")
     match v:
         case "1":
-                if perc > 480 and perc < 540:
-                    os.system("cls")
-                    statPrinteles(energia,penz)
-                    ido(perc)
-                    print("\nHelyszin: Iskola(Lyedlick)")
-                    print(f"\n")
-                elif perc < 480:
-                    os.system("cls")
-                    statPrinteles(energia,penz)
-                    ido(perc)
-                    print("\nHelyszin: Iskola(Lyedlick)")
-                    print(f"\nVarj meg {480}-{perc} percet. Lassan mehetsz iskolaba.")
-                elif perc > 530:
+                if perc < 535:
+                    v = 0
+                    iskola2(v)
+                else:
                     os.system("cls")
                     statPrinteles(energia,penz)
                     ido(perc)
                     print("\nHelyszin: Iskola(Lyedlick)")   
-                    print("\nElso oran hianyoztal!\nMar mindegy, beirtak hianyzonak egesz napra, inkabb setalj egyet a varosban.")
+                    print("\nNem ertel be a masodik oradra sem!\nMar mindegy, beirtak hianyzonak egesz napra, inkabb setalj egyet a varosban.")
+                    time.sleep(3)
                     v = 0
                     gyor(v)             
                 
@@ -446,6 +438,54 @@ def becsivonat(v : str):
         print("\nNincs eleg penzed a vonatjegyre, dolgoznod kell meg!")
         time.sleep(2)
         gyor(v)
+
+
+
+def iskola2(v : str):
+    global penz
+    global energia
+    global cigi
+    global nyelvtanulas
+    global perc
+    os.system("cls")
+    if perc < 480:
+        perc = 481
+    if perc > 480:
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print(f"Beertel az elso oradra, igaz kestel egy kicsit.")
+        time.sleep(3)
+        os.system("cls")
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print(f"\nAz elso orad matek. Kastal Tanarno beirt egy egyest, mert nem volt meg a hazid.\nEzert otthon biztosan kapsz!")
+        perc = 525
+        time.sleep(2)
+        print("SZUNET")
+        os.system("cls")
+        statPrinteles(energia, penz)
+        ido(perc)
+        perc = 535
+        time.sleep(2)
+        os.system("cls")
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        time.sleep(3)
+        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
+        nyelvtanulas = True
+    if perc > 535 and perc < 540:
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print(f"Felirtak a portan, mert elkestel az elso oradrol!")
+        time.sleep(3)
+        os.system("cls")
+        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
+        nyelvtanulas = True
+
 
 def vege():
     os.system("cls")
