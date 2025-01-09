@@ -1,6 +1,7 @@
 import random, os, time
 
 
+
 def vesztettel():
     v = 0
     if perc >= 1380:
@@ -45,7 +46,7 @@ def gyomore(v: str):
     energia = 100
     penz = 2500
     perc = 402
-    keses = int(random.randint(1,52))
+    keses = int(random.randint(1,90))
     menetido = keses +26
     os.system("cls")
     statPrinteles(energia, penz)
@@ -247,7 +248,7 @@ def arkad(v : str):
                     os.system("cls")
                     statPrinteles(energia,penz)
                     ido(perc)
-                    print(f"\nDolgoztal 1/{workhours} orat wcs nenikent es {pluszpenz} Ft-ot kerestel.")
+                    print(f"\nDolgoztal 1 orat wcs nenikent es {pluszpenz} Ft-ot kerestel.")
                     time.sleep(3)
                     vesztettel()
                     arkad(v)
@@ -448,9 +449,20 @@ def iskola2(v : str):
     global nyelvtanulas
     global perc
     os.system("cls")
+    if perc > 535 and perc < 540:
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print(f"Felirtak a portan, mert elkestel az elso oradrol!")
+        time.sleep(3)
+        os.system("cls")
+        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
+        nyelvtanulas = True
+        perc = 580
+        pass
     if perc < 480:
         perc = 481
-    if perc > 480:
+    if perc > 480 and perc < 525:
         statPrinteles(energia, penz)
         ido(perc)
         print("\nHelyszin: Iskola(Lyedlick)")
@@ -464,27 +476,43 @@ def iskola2(v : str):
         perc = 525
         time.sleep(2)
         print("SZUNET")
+        time.sleep(2)
         os.system("cls")
         statPrinteles(energia, penz)
         ido(perc)
-        perc = 535
+        perc = random.randint(535,580)
         time.sleep(2)
         os.system("cls")
         statPrinteles(energia, penz)
         ido(perc)
         print("\nHelyszin: Iskola(Lyedlick)")
-        time.sleep(3)
         print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
         nyelvtanulas = True
-    if perc > 535 and perc < 540:
+        perc = random.randint(590,635)
+        time.sleep(3)
+        print("SZUNET")
+        perc = random.randint(650,695)
+        time.sleep(3)
+        os.system("cls")
         statPrinteles(energia, penz)
         ido(perc)
         print("\nHelyszin: Iskola(Lyedlick)")
-        print(f"Felirtak a portan, mert elkestel az elso oradrol!")
+        print(f"\nA harmadik orad tortenelem. Nem figyeltel semmit ,mert vegig telefonoztal.\nKozben a padod 1.5 metert arreb mozdult amit sem te, sem a tanarur nem vett eszre.")
+        nyelvtanulas = True
+        perc = random.randint(650,695)
+        time.sleep(3)
+        print("SZUNET")
+        perc = 695
         time.sleep(3)
         os.system("cls")
-        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
-        nyelvtanulas = True
+        statPrinteles(energia, penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print(f"\nA negyedik orad jon, a fizika. A tanarno megkeri, hogy demonstrald a kiserletet az alkohol egeserol.")
+        perc = random.randint(705,750)
+        time.sleep(3)
+
+
 
 
 def vege():

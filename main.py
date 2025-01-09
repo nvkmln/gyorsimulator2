@@ -1,7 +1,6 @@
-from helyek import gyomore
-import os
-
-def main():
+def main() -> None:
+    from helyek import gyomore
+    import os
     global energia
     global penz
     global ora
@@ -24,5 +23,8 @@ def main():
         case default:
             main()
 
-main()
 
+
+
+if __name__ == "__main__":
+    main()
