@@ -124,6 +124,15 @@ def iskola(v : str):
                 if perc < 525:
                     v = 0
                     iskola2(v)
+                elif perc >= 860:
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")   
+                    print("\nMar vege a sulinak, legkozelebb reggel gyere be!")
+                    time.sleep(3)
+                    v = 0
+                    gyor(v)             
                 else:
                     os.system("cls")
                     statPrinteles(energia,penz)
@@ -424,7 +433,7 @@ def becsivonat(v : str):
     global ora
     global perc
     os.system("cls")
-    if penz >= 15000:
+    if penz >= 15000 and nyelvtanulas == True:
         penz -= 15000
         statPrinteles(energia,penz)
         ido(perc)
@@ -432,13 +441,27 @@ def becsivonat(v : str):
         print(f"\nGratulalok! Elerted az almodat, sok sikert kivanunk!")
         time.sleep(3)
         vege()
-    else:
+    elif nyelvtanulas != True and penz <15000:
         v = 0
         statPrinteles(energia,penz)
         ido(perc)
-        print("\nNincs eleg penzed a vonatjegyre, dolgoznod kell meg!")
+        print("\nSe nemetul nem tudsz, se penzed sincs. Megis mit szeretnel?")
         time.sleep(2)
         gyor(v)
+    elif nyelvtanulas != True:
+                v = 0
+                statPrinteles(energia,penz)
+                ido(perc)
+                print("\nNem tudsz nemetul!\nHa iskolaba jarsz, ott megtanulsz!")
+                time.sleep(2)
+                gyor(v)
+    else:
+                v = 0
+                statPrinteles(energia,penz)
+                ido(perc)
+                print("\nNincs eleg penzed a vonatjegyre, dolgoznod kell meg!")
+                time.sleep(2)
+                gyor(v)
 
 
 
@@ -469,7 +492,7 @@ def iskola2(v : str):
         statPrinteles(energia,penz)
         ido(perc)
         print("\nHelyszin: Iskola(Lyedlick)")
-        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Imre tanarur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
+        print(f"\nA masodik orad nemet. Betegseg miatt Csicsay Imre tanar ur helyettesit, mert kivaloan tud nemetul.\nKaptal egy otost, mert nagyon jol dolgoztal az oran!")
         nyelvtanulas = True
         szunet(random.randint(580,590))
         energia = 100
@@ -514,7 +537,7 @@ def iskola2(v : str):
                     statPrinteles(energia,penz)
                     ido(perc)
                     print("\nHelyszin: Iskola(Lyedlick)")  
-                    print("\nTalalekony voltal es meglattad a kezfertotlenitot az ablakban. Az kiserlet folytatodott tovabb, bar nem volt akkora durranas, mint az etil-alkohol.")          
+                    print("\nTalalekony voltal es meglattad a kezfertotlenitot az ablakban. A kiserlet folytatodott tovabb, bar nem volt akkora durranas, mint az etil-alkohol.")          
                     time.sleep(7)
                     pass
             case "3":
@@ -538,7 +561,88 @@ def iskola2(v : str):
                     print("JAJ NE! Bevizeltel! Leegetted magad az egesz osztaly elott!(secret ending)")
                     time.sleep(7)
                     vege()
-        szunet(695)
+        szunet(random.randint(695,705))
+        energia -= 10
+        perc = random.randint(705,750)
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print("\n5-6. orad programozas Csicsay tanar urral.\nGyakorlo feladatokat csinaltatok, mert most tanultatok a szotarakat.")
+        time.sleep(7)
+        perc = 745
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        time.sleep(1)
+        print("\nMegszolalt a jelzocsengo.\nCSI: SZUNET!")
+        time.sleep(1)
+        print("\nA Tanar ur elengedett 5 perccel elobb szunetre.")
+        time.sleep(5)
+        szunet(random.randint(740,760))
+        energia += 5
+        perc = random.randint(760,805)
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print("\nJon a masodik programozas. Elkezdted magadtol megoldani a feladatokat.")
+        time.sleep(5)
+        print("\nHat... valamit nagyon elrontottal, mert a szamitogep langra kapott.\nIlyen rossz kodot irtal volna? Shit happens")
+        time.sleep(7)
+        perc = 800
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        time.sleep(1)
+        print("\nIsmet jelzocsengo.\nCSI: Menjunk haza!")
+        time.sleep(4)
+        print("\nA Tanar ur elengedett 5 perccel elobb szunetre.")
+        time.sleep(5)
+        szunet(random.randint(800,815))
+        os.system("cls")
+        energia = 100
+        perc = random.randint(815,860)
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print("\nSajnos te meg nem mehettel haza. Utolso orad irodalom Reger Daniel tanar urral")
+        time.sleep(7)
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print("\nFeleles kovetkezik.")
+        v = input("\n 1 - Igen\t\t 2 - Nem\nTanultal?")
+        match v:
+            case "1":
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")
+                    print("\nA tanar ur teged szolitott fel, es mivel tanultal kaptal egy otost!\nLehet anyukad megsem lesz merges.")
+                    time.sleep(7)
+                    pass
+            case "2":
+                    os.system("cls")
+                    statPrinteles(energia,penz)
+                    ido(perc)
+                    print("\nHelyszin: Iskola(Lyedlick)")
+                    print("\nHat.. porul jartal, Te felelsz. A rossz jegyeid es nem tanulasod eredmenye egy egyes. A mai nap a masodik.\nSzerintem itt az ideje megszokni Becsbe!")
+                    time.sleep(7)
+                    pass
+        perc = 860
+        energia -= 10
+        os.system("cls")
+        statPrinteles(energia,penz)
+        ido(perc)
+        print("\nHelyszin: Iskola(Lyedlick)")
+        print("\nMegszabadultal az iskolabol!")
+        v = "0"
+        gyor(0)
+
 
 
 def szunet(perc : int):
